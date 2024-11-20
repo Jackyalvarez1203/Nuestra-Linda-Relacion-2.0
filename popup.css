@@ -1,0 +1,55 @@
+/* Estilo para el fondo del pop-up */
+.share-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para el pop-up */
+    display: none; /* Inicialmente está oculto */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el contenido del pop-up */
+.share-popup .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px; /* Limita el ancho máximo */
+    width: 90%; /* El ancho será el 90% de la pantalla */
+    text-align: center; /* Centra el contenido del pop-up */
+}
+
+/* Estilo para los enlaces dentro del pop-up */
+.share-popup .popup-content a {
+    margin: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #007bff; /* Color de los enlaces */
+    transition: color 0.3s ease;
+}
+
+.share-popup .popup-content a:hover {
+    color: #0056b3; /* Color de los enlaces al pasar el mouse */
+}
+
+/* Estilo para el botón de cerrar */
+.share-popup .popup-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4747; /* Rojo para el botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.share-popup .popup-content button:hover {
+    background-color: #ff1f1f; /* Rojo más oscuro al pasar el mouse */
+}

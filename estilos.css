@@ -1,0 +1,173 @@
+
+/* Estilos básicos */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Post */
+.post {
+    width: 350px;
+    background-color: rgb(255, 255, 255);
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Cabecera de cada post (foto de perfil y nombre del usuario) */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header .user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.header .user-info p {
+    margin: 0;
+}
+
+/* Carrusel de medios */
+.media-carousel {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.media-carousel .media-item {
+    display: none;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    text-align: center;
+}
+
+.media-carousel .active {
+    display: block;
+}
+
+/* Estilo de los comentarios */
+.comments {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    display: none; /* Ocultar por defecto */
+}
+
+.comment-list {
+    margin-top: 10px;
+}
+
+.comment {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment p {
+    margin: 0;
+}
+
+.comment input {
+    width: 95%;
+    padding: 10px;
+    border: none;
+    background-color: #fafafa;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+/* Botón de like */
+.like-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: #999; /* Gris al inicio */
+    transition: color 0.3s ease;
+}
+
+/* Cuando se hace click en el like */
+.like-button.liked {
+    color: red; /* Rojo cuando se da like */
+}
+
+/* Estilo para la ventana de compartir */
+.share-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.share-popup .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.share-popup .popup-content a {
+    margin: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Estilo para los iconos de las redes sociales */
+.share-popup .popup-content .social-icons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.share-popup .popup-content .social-icons a {
+    font-size: 40px;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.share-popup .popup-content .social-icons a:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo para el botón de cerrar */
+.share-popup .popup-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4747;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.share-popup .popup-content button:hover {
+    background-color: #ff1f1f;
+}

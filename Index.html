@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form id="login-form">
+            <h1>Inicia Sesión ;3</h1>
+
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Usuario" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">Recuerdame</label>
+                <a href="#">Olvidé mi contraseña ;-;</a>
+            </div>
+
+            <button type="submit" class="btn">Iniciar sesión :3</button>
+
+            <div class="register-link">
+                <p>No tengo una cuenta <a href="#">Regístrame :D</a></p>
+            </div>
+        </form>
+    </div>
+ <!-- El popup de error -->
+ <div id="popup" class="popup">
+    <div class="popup-content">
+      <p>Usuario o contraseña incorrecta, intenta de nuevo ;-;</p>
+      <button onclick="cerrarPopup()">Volver a intentar</button>
+    </div>
+  </div>
+
+    <script>
+       // Función para manejar el inicio de sesión
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe y recargue la página
+
+    // Obtener los valores de usuario y contraseña
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Definir las credenciales válidas
+    const validUsers = {
+        "Jack<3": "03122008",
+        "Markiss<3": "20122006",
+        "Evan :D": "24082007"
+    };
+
+    // Verificar si el usuario y la contraseña coinciden
+    if (validUsers[username] && validUsers[username] === password) {
+        // Guardar la sesión en localStorage
+        localStorage.setItem('username', username);
+        
+        // Redirigir a pagina.html
+        window.location.href = "pagina.html";
+    } else {
+        // Mostrar el popup en lugar de la alerta
+        mostrarPopup();
+    }
+});
+
+// Función para abrir el popup
+function mostrarPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+// Función para cerrar el popup
+function cerrarPopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+    </script>
+</body>
+</html>
