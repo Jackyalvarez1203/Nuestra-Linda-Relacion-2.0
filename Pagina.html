@@ -222,6 +222,7 @@
         .share-popup-content a#share-instagram i {
             color: #E4405F; /* Color de Instagram */
         }
+        
     </style>
 </head>
 <body>
@@ -243,9 +244,8 @@
                 <i class="fab fa-twitter"></i>
             </a>
             <a id="share-instagram" href="#" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
+                <i class="fab fa-instagram"></i></a>
+            </div>
     </div>
 <script>
     // Obtener el usuario logueado desde localStorage
@@ -361,7 +361,16 @@
     ],
     caption: "Amo esos lindos mensajes que me dejas antes de despertarme, amo el hecho de que pienses en mi, como ya he dicho se que es dificil el hecho de estar alejado uno del otro pero se que los dos lograremos llevar mas alla de una pantalla nuestra linda relación <3",
     link: "https://nuestra-linda-relacion.netlify.app/pagina#post-9"
-}
+},
+        {
+    username: "Jack <3",
+    userHandle: "@Jack_morning_star_",
+    avatar: "perfil.jpg",
+    media: [
+        { type: "image", url: "12.png" },
+    ],
+    caption: "Mira ;3",
+    link: "https://nuestra-linda-relacion.netlify.app/pagina#post-9"}
 
     ];
 
@@ -481,6 +490,5 @@
         postsContainer.innerHTML += createPost(post, index);
     });
 </script>
-
 </body>
 </html>
