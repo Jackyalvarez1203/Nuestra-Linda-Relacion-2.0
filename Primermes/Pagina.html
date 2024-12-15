@@ -4,226 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/Pagina.css">
     <title>😻Nuestra linda relación😻</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
-
-        .post {
-            width: 350px;
-            background-color: rgb(255, 255, 255);
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 5px; /* Reduce el espacio debajo de la cabecera */
-        }
-
-        .header img {
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            margin-right: 5px; /* Reduce el espacio entre la imagen y los textos */
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            margin-left: 5px; /* Reduce el espacio izquierdo de los textos */
-        }
-
-        .user-info p {
-            margin: 0; /* Elimina el margen para que no haya espacio innecesario */
-            padding: 0;
-        }
-
-        .user-info p:first-child {
-            font-weight: bold; /* Deja el nombre en negrita */
-        }
-
-        .media-carousel {
-            width: 100%;
-            height: 350px;
-            display: flex;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .media-carousel .media-item {
-            display: none;
-            flex-shrink: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            text-align: center;
-        }
-
-        .media-carousel .active {
-            display: block;
-        }
-
-        .post-actions {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px;
-        }
-
-        .like-button,
-        .comment-button,
-        .share-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .like-button {
-            color: #333;
-        }
-
-        .like-button.liked {
-            color: rgb(255, 0, 0);
-        }
-
-        .caption {
-            padding: 10px;
-        }
-
-        .comments {
-            padding: 10px;
-            border-top: 1px solid #ddd;
-        }
-
-        .comments input {
-            width: 95%;
-            padding: 10px;
-            border: none;
-            background-color: #fafafa;
-            font-size: 14px;
-            border-radius: 5px;
-        }
-
-        .comment-list {
-            margin-top: 10px;
-        }
-
-        .comment {
-            padding: 5px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .comment p {
-            margin: 0;
-        }
-/* Popup de compartir */
-#sharePopup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .share-popup-content {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 400px;
-            max-width: 90%;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Título de compartir publicación */
-        .share-popup-content h3 {
-    text-align: center;  /* Centra el texto */
-    margin-bottom: 20px; /* Espacio debajo del título */
-    font-size: 24px;     /* Tamaño de fuente adecuado */
-    font-weight: bold;   /* Asegura que el título tenga peso */
-    color: #333;         /* Color del texto */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Agrega una ligera sombra */
-}
-
-
-        /* Botón de cerrar en la parte superior derecha */
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 30px;
-            cursor: pointer;
-            color: #333;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .close-popup:hover {
-            color: #ff4d4d;
-        }
-
-        /* Contenedor de los íconos */
-        .share-popup-content div {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px; /* Espacio entre los íconos */
-            width: 100%;
-            max-width: 380px; /* Ajusta el ancho para que no se estiren demasiado */
-            margin-top: 20px;
-        }
-
-        .share-popup-content a {
-            font-size: 40px; /* Aumentar el tamaño de los íconos */
-            color: #333;
-            text-decoration: none;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease, color 0.3s ease;
-        }
-
-        .share-popup-content a:hover {
-            color: #0073e6;
-            transform: scale(1.2);
-        }
-
-        /* Color específico para cada red social */
-        .share-popup-content a#share-whatsapp i {
-            color: #25D366; /* Color de WhatsApp */
-        }
-
-        .share-popup-content a#share-facebook i {
-            color: #3b5998; /* Color de Facebook */
-        }
-
-        .share-popup-content a#share-twitter i {
-            color: #1DA1F2; /* Color de Twitter */
-        }
-
-        .share-popup-content a#share-instagram i {
-            color: #E4405F; /* Color de Instagram */
-        }
-        
-    </style>
+  
 </head>
 <body>
 
@@ -254,11 +37,11 @@
     {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
+            avatar: "../img/perfil.jpg",
             media: [
-                { type: "image", url: "12102024.png" },
-                { type: "video", url: "video.mp4" },
-                { type: "audio", url: "audio.mp3" }
+                { type: "image", url: "../img/12102024.png" },
+                { type: "video", url: "../videos/video.mp4" },
+                { type: "audio", url: "../audios/audio.mp3" }
             ],
             caption: "Este es uno de los primeros recuerdos de cuando íbamos a volver a empezar nuestra linda relación a pesar de que ha sido un poco jodido el estar alejado uno del otro se ha logrado <3",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-1"  // Enlace del post específico
@@ -266,98 +49,98 @@
        {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "M.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/M.jpg" }],
             caption: "Aquí hace presencia una de las muchas fotos de un niño muy lindo llamado Marcos, a pesar de que él diga que no es lindo o muchas cosas más eso no es así, él es muy lindo",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-2" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "A.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/A.jpg" }],
             caption: "Sé que el hecho de estar detrás de una pantalla pues es muy jodido, el no poder abrazar o besar a esa persona pero el tan solo ver sus lindas fotos me hacen muy feliz :D",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-3" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "R.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/R.jpg" }],
             caption: "Amo esos ojitos hermosos, amo el solo hecho de que este chico exista, él se ha convertido en alguien muy especial para mí en tan poco tiempo",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-4" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "O.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/O.jpg" }],
             caption: "Agradecer al de arriba si nos escucha y está allí, por el hecho de que este niño tan lindo sea mi pareja <3",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-5" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "S.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/S.jpg" }],
             caption: "❤‍🩹",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-6" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "E.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/E.jpg" }],
             caption: "😻😻😻",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-7" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "Ajedrez.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/Ajedrez.jpg" }],
             caption: "Amo el hecho de jugar ajedrez aunque casi siempre gano (pero él ha demostrado que a pesar de que pierda, le gusta jugar conmigo aunque solo sea un jueguito donde yo tenga experiencia XD)",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-8" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "Dots2.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/Dots2.jpg" }],
             caption: "Los lindos recuerdos que llevamos en Dots son lo mejor, también el hecho de que si me encuentro mal, pues poder ver su linda carita <3",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-9" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "Llamada.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/Llamada.jpg" }],
             caption: "El hecho de hacer llamadas es muy lindo al escuchar su voz aunque a veces no sepamos ni qué decir (y hasta llegarme a quedar dormido y sentirme acompañado a través de una pantalla)",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-10" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "Mundito.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/Mundito.jpg" }],
             caption: "Jugando munditos donde morimos mucho jsjsjs",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-11" 
         },
         {
             username: "Jack <3",
             userHandle: "@Jack_morning_star_",
-            avatar: "perfil.jpg",
-            media: [{ type: "image", url: "Llamada2.jpg" }],
+            avatar: "../img/perfil.jpg",
+            media: [{ type: "image", url: "../img/Llamada2.jpg" }],
             caption: "Amo los dias que hacemos llamada aunque me quede dormido a la mitad de ella <br> Amo que escuches todas las pendejadas que digo🥹 <br> Amo cada minuto donde hablo contigo, donde escucho tu linda voz, amo todo de ti <3",
             link: "https://nuestra-linda-relacion.netlify.app/pagina#post-12" 
         },
         {
     username: "Jack <3",
     userHandle: "@Jack_morning_star_",
-    avatar: "perfil.jpg",
+    avatar: "../img/perfil.jpg",
     media: [
-        { type: "image", url: "J.jpg" },
-        { type: "image", url: "K.jpg" }
+        { type: "image", url: "../img/J.jpg" },
+        { type: "image", url: "../img/K.jpg" }
     ],
     caption: "Amo esos lindos mensajes que me dejas antes de despertarme, amo el hecho de que pienses en mi, como ya he dicho se que es dificil el hecho de estar alejado uno del otro pero se que los dos lograremos llevar mas alla de una pantalla nuestra linda relación <3",
     link: "https://nuestra-linda-relacion.netlify.app/pagina#post-9"
@@ -365,13 +148,12 @@
         {
     username: "Jack <3",
     userHandle: "@Jack_morning_star_",
-    avatar: "perfil.jpg",
+    avatar: "../img/perfil.jpg",
     media: [
-        { type: "image", url: "12.png" },
+        { type: "image", url: "../img/12.png" },
     ],
     caption: "Mira ;3",
     link: "https://nuestra-linda-relacion.netlify.app/pagina#post-9"}
-
     ];
 
     let touchTimeout = null;

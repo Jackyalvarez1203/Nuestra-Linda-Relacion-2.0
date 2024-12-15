@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2? family=Poppins:wght@300;400;500;600;700;800;900& display=swap");
+
+
+
+* {
+
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+
+}
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items:center;
+   min-height: 100vh;
+   background: url(../img/giarsoles.jpg) no-repeat ;
+   background-size: cover;
+   background-position: center;
+}
+.wrapper {
+       width: 420px;
+       background: transparent;
+       border: 2px solid rgba(255S, 255, 255, .2);
+       backdrop-filter: blur(20px);
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+       color: #010000;
+       border-radius: 10px;
+       padding: 30px 40px;
+}
+.wrapper h1 { 
+    font-size: 36px;
+    text-align: center;
+}.wrapper .meses-de-relacion {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+
+}
+.meses-de-relacion p a {
+    color: #000000;
+    text-decoration:  none;
+    font-weight: 600;
+}
+.meses-de-relacion p a:hover {
+    text-decoration:  underline;
+
+}

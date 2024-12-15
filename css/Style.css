@@ -17,7 +17,7 @@ body {
    justify-content: center;
    align-items:center;
    min-height: 100vh;
-   background: url(giarsoles.jpg) no-repeat ;
+   background: url(../img/giarsoles.jpg) no-repeat ;
    background-size: cover;
    background-position: center;
 }
@@ -110,3 +110,4 @@ margin-right: 3px;
     text-decoration:  underline;
 
 }
+
