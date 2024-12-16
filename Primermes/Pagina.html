@@ -246,7 +246,12 @@
         }
     }
 
-    function navigateCarousel(index, event) {
+    let cooldown = false; // Variable para controlar el cooldown
+
+function navigateCarousel(index, event) {
+    // Si el cooldown está activo, no hacer nada
+    if (cooldown) return;
+
     clearTimeout(touchTimeout);
 
     touchTimeout = setTimeout(() => {
@@ -262,15 +267,22 @@
         // Elimina la clase 'active' del actual y añade al siguiente
         activeItem.classList.remove('active');
         nextItem.classList.add('active');
-    }, 100);
+
+        // Activar el cooldown para evitar otra navegación inmediatamente
+        cooldown = true;
+
+        // Reiniciar el cooldown después de 3 segundos (3000 ms)
+        setTimeout(() => {
+            cooldown = false;
+        }, 100);
+    }, 50); // El temporizador de 100 ms sigue existiendo para el comportamiento de la animación
 }
 
-
-    // Generar los posts en la página
-    const postsContainer = document.getElementById('posts-container');
-    posts.forEach((post, index) => {
-        postsContainer.innerHTML += createPost(post, index);
-    });
+// Generar los posts en la página
+const postsContainer = document.getElementById('posts-container');
+posts.forEach((post, index) => {
+    postsContainer.innerHTML += createPost(post, index);
+});
 </script>
 </body>
 </html>
