@@ -5,30 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/Pagina.css">
+    <link rel="stylesheet" href="../css/Paginaa.css">
     <title>😻Nuestra linda relación😻</title>
   
 </head>
 <body>
-
-<div id="posts-container"></div>
-<!-- Popup de compartir -->
-<div id="sharePopup">
-    <div class="share-popup-content">
-        <button class="close-popup" onclick="closeSharePopup()">×</button>
-        <h3>Compartir página <br>😻Nuestra Linda relación😻</h3>
-        <div>
-            <a id="share-whatsapp" href="#" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a id="share-facebook" href="#" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a id="share-twitter" href="#" target="_blank">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a id="share-instagram" href="#" target="_blank">
-                <i class="fab fa-instagram"></i></a>
+    <div id="posts-container"></div>
+    <!-- Popup de compartir -->
+    <div id="sharePopup">
+        <div class="share-popup-content">
+            <button class="close-popup" onclick="closeSharePopup()">×</button>
+            <h3>Compartir página <br>😻Nuestra Linda relación😻</h3>
+            <div>
+                <a id="share-whatsapp" href="#" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a id="share-facebook" href="#" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a id="share-twitter" href="#" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a id="share-instagram" href="#" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
+            <!-- Botón de redirigir agregado debajo de los iconos -->
+            <button class="redirect-button" onclick="redirectPage()">Siguiente pagina :3</button>
+        </div>
     </div>
 <script>
     // Obtener el usuario logueado desde localStorage
@@ -277,6 +281,10 @@ function navigateCarousel(index, event) {
         }, 100);
     }, 50); // El temporizador de 100 ms sigue existiendo para el comportamiento de la animación
 }
+   // Función para redirigir al siguiente enlace
+   function redirectPage() {
+        window.location.href = 'Prueba.html';  // Redirige a la página que desees
+    }
 
 // Generar los posts en la página
 const postsContainer = document.getElementById('posts-container');
