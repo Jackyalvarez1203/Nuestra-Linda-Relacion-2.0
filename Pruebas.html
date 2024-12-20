@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mob Vote en Minecraft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1c1c1c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #007f7f;
+        }
+        .mob-example {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .mob-card {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 8px;
+            width: 30%;
+            text-align: center;
+        }
+        .mob-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .vote-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .vote-button {
+            padding: 10px 20px;
+            background-color: #007f7f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .vote-button:hover {
+            background-color: #005e5e;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        footer {
+            text-align: center;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Vota por tu Mob Favorito de Minecraft!</h1>
+    </header>
+
+    <section>
+        <h2>¿Qué es un Mob Vote?</h2>
+        <p>El *Mob Vote* es un evento anual en el que la comunidad de Minecraft puede votar por su mob favorito entre varias opciones presentadas durante el evento *Minecraft Live*. El mob que más votos recibe es añadido al juego en una futura actualización.</p>
+    </section>
+
+    <section>
+        <h2>Elige tu mob favorito</h2>
+        <div class="mob-example">
+            <div class="mob-card">
+                <img src="https://via.placeholder.com/150" alt="Allay">
+                <h3>Allay</h3>
+                <p>Este mob puede recoger objetos que el jugador le lanza. ¡Un ayudante muy útil!</p>
+                <button class="vote-button" onclick="vote('Allay')">Votar por Allay</button>
+            </div>
+            <div class="mob-card">
+                <img src="https://via.placeholder.com/150" alt="Glow Squid">
+                <h3>Glow Squid</h3>
+                <p>El calamar brillante, el ganador del 2020, ilumina las aguas del océano.</p>
+                <button class="vote-button" onclick="vote('Glow Squid')">Votar por Glow Squid</button>
+            </div>
+            <div class="mob-card">
+                <img src="https://via.placeholder.com/150" alt="Copper Golem">
+                <h3>Copper Golem</h3>
+                <p>Este golem de cobre tiene la capacidad de crear botones.</p>
+                <button class="vote-button" onclick="vote('Copper Golem')">Votar por Copper Golem</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="result" id="result-section">
+        <p>Voto actual: Ninguno</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Minecraft Mob Vote</p>
+    </footer>
+
+    <script>
+        // Objeto para almacenar los votos en el localStorage
+        let votes = JSON.parse(localStorage.getItem('votes')) || {
+            'Allay': 0,
+            'Glow Squid': 0,
+            'Copper Golem': 0
+        };
+
+        // Mostrar los votos actuales en la interfaz
+        function updateVotes() {
+            document.getElementById('result-section').innerHTML = `
+                <p>Votos actuales:</p>
+                <ul>
+                    <li>Allay: ${votes['Allay']}</li>
+                    <li>Glow Squid: ${votes['Glow Squid']}</li>
+                    <li>Copper Golem: ${votes['Copper Golem']}</li>
+                </ul>
+            `;
+        }
+
+        // Función para registrar el voto
+        function vote(mob) {
+            // Incrementa el contador de votos para el mob seleccionado
+            votes[mob]++;
+            // Guardar los votos en localStorage
+            localStorage.setItem('votes', JSON.stringify(votes));
+            // Actualizar la vista
+            updateVotes();
+        }
+
+        // Inicializar los votos cuando la página carga
+        updateVotes();
+    </script>
+</body>
+</html>
